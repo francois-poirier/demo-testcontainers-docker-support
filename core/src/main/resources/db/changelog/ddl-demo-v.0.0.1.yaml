@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 01_demo_create_schema
+      author: fpoirier
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS demo
+
+  - changeSet:
+      id: 02_create_table
+      author: fpoirier
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              schemaName: demo
+              tableName: user
+      changes:
+        - createTable:
+            schemaName: demo
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKeyName: demo_pkey
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false

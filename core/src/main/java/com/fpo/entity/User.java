@@ -1,17 +1,16 @@
 package com.fpo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "user", schema = "demo")
 public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
 
     public User() {
     }
@@ -26,7 +25,7 @@ public class User {
     private String lastName;
     private String email;
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -42,7 +41,7 @@ public class User {
         this.email = email;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
