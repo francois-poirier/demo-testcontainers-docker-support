@@ -28,7 +28,7 @@ public class UserControllerE2ETest extends BaseIntegrationTest {
                 new HttpEntity<String>(userDetailsRequestJson.toString(), headers);
 
         // when
-        ResponseEntity<User> createdUserDetailsEntity = testRestTemplate.postForEntity("/users", request, User.class);
+        ResponseEntity<User> createdUserDetailsEntity = testRestTemplate.postForEntity("/api/users", request, User.class);
 
         // then
         assertEquals(HttpStatus.CREATED, createdUserDetailsEntity.getStatusCode());
