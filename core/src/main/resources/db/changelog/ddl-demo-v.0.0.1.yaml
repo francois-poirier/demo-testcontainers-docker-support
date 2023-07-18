@@ -7,7 +7,7 @@ databaseChangeLog:
             sql: CREATE SCHEMA IF NOT EXISTS demo
 
   - changeSet:
-      id: 02_create_table
+      id: 02_create_user_table
       author: fpoirier
       preConditions:
         - onFail: MARK_RAN
