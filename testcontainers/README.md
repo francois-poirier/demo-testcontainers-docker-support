@@ -160,7 +160,7 @@ mvn spring-boot:test-run
 ```
 Once the app starts you will see that the Postgresql container is up and running and connection to it is established.
 
-// TODO image
+![Start Spring boot app](./img/app-start.png "Start Spring boot app")
 
 Since we are in dev mode we will also include the Spring Devtools module to automatically restart the app after the source code change.
 ```xml
@@ -171,7 +171,8 @@ Since we are in dev mode we will also include the Spring Devtools module to auto
 </dependency>
 ```
 Let’s what happened. Once we provide a change in the source code Spring Devtools will restart the app and the Postgresql container. You can verify it in the app logs and also on the list of running Docker containers. As you see the Testcontainer ryuk has been initially started a minute ago, while Postgresql was restarted after the app restarted X seconds ago.
-// TODO image
+
+![Docker process](./img/docker-ps.png "Docker process")
 
 In order to prevent restarting the container on app restart with Devtools we need to annotate the <span style="color:red">PostgreSQLContainer</span> bean with <span style="color:red">@RestartScope</span>.
 
@@ -188,5 +189,3 @@ public class TestContainersConfiguration {
 }
 ```
 Now, Devtools just restart the app without restarting the container.
-
-// TODO image
