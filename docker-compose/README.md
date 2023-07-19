@@ -61,3 +61,10 @@ There have three lifecycle strategies,
 - start-only: Start the docker-compose file when the application starts and leave it
 - start-and-stop: Start Docker Compose when the application starts and stop it when the JVM exits (This is the default behavior)
 For more details, you can use the [Spring boot Docker Container official documentation](https://docs.spring.io/spring-boot/docs/3.1.0/reference/html/features.html#features.docker-compose).
+
+### How to configure application.properties file for docker configuration in test
+You can set spring.docker.compose.skip.in-tests=false to enable the Docker Compose support in your tests
+```properties
+spring.docker.compose.skip.in-tests=false
+spring.docker.compose.file=./docker/test/docker-compose-test.yml
+```
