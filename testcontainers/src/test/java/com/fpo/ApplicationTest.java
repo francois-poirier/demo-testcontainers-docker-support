@@ -1,16 +1,13 @@
 package com.fpo;
 
 import com.fpo.config.TestContainersConfiguration;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
+import org.springframework.boot.SpringApplication;
 
-@SpringBootTest
-@Import(TestContainersConfiguration.class)
-class ApplicationTest {
+public class ApplicationTest {
 
-    @Test
-    void contextLoads(){
-
+    public static void main(String[] args) {
+        SpringApplication.from(Application::main)
+                .with(TestContainersConfiguration.class)
+                .run(args);
     }
 }
