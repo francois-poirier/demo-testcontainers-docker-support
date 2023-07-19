@@ -154,8 +154,10 @@ public class ApplicationTest {
 }
 ```
 
-Finally, we can start our “test” main class directly from the IDE or we can just execute the following Maven command:
+Finally, we can start our “test” main class directly from the IDE or we can just execute the following Maven commands in root directory:
 ```command
+mvn clean install
+cd testcontainers
 mvn spring-boot:test-run
 ```
 Once the app starts you will see that the Postgresql container is up and running and connection to it is established.
